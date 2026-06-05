@@ -19,7 +19,7 @@ function AddJob({ fetchJobs }) { /*we collected the fucntion send by app.jsx*/
     e.preventDefault()
     const token = localStorage.getItem("access")  
     await axios.post(
-      "${API_BASE_URL}/api/jobs/",
+      `${API_BASE_URL}/api/jobs/`,
       formData,
       {
         headers: {

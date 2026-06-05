@@ -20,7 +20,7 @@ function Signup({ setShowSignup }) {
     e.preventDefault()
     try {
       await axios.post(
-        "${API_BASE_URL}/api/accounts/signup/",
+        `${API_BASE_URL}/api/accounts/signup/`,
         formData
       )
       alert("Account created! Please login!")

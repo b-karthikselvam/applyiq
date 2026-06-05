@@ -14,7 +14,7 @@ function App() {
   async function fetchJobs() {                       // 6.fucntion called 
     const token = localStorage.getItem("access")    //6.1 token is stored in variable called token from browsers local storage and ready to go along with the request
     const response = await axios.get(               // 6.2 request is made      //6.4 now response have the joblist 
-      "${API_BASE_URL}/api/jobs/",
+      `${API_BASE_URL}/api/jobs/`,
       {
         headers: {
           Authorization: `Bearer ${token}`        //6.3 we passed the vaariable wich contain the acess token now go  to step 6.4

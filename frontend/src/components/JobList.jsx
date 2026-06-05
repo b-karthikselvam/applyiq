@@ -20,7 +20,7 @@ async function analyzeJob() {
     setAnalyzing(true)
     const token = localStorage.getItem("access")
     const response = await axios.post(
-        "${API_BASE_URL}/api/analyze/",
+        `${API_BASE_URL}/api/analyze/`,
         {
             description: jdText,
             resume: resumeText
@@ -43,7 +43,7 @@ async function analyzeJob() {
     e.preventDefault()
     const token = localStorage.getItem("access")
     await axios.post(
-      "${API_BASE_URL}/api/jobs/",
+      `${API_BASE_URL}/api/jobs/`,
       formData,
       {
         headers: {
