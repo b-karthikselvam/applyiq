@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import AppRouter from "./router/AppRouter"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
-import API_BASE_URL from '../api'
+import API_BASE_URL from './api'
 
 function App() {
   const [jobs, setJobs] = useState([])
