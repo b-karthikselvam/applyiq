@@ -86,6 +86,9 @@ CORS_ALLOWED_ORIGINS = [
     'https://applyiq-production.up.railway.app',
     'https://applyiq-beryl.vercel.app',
 ]
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://applyiq-.*\.vercel\.app$",
+]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
