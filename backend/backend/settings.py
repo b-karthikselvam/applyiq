@@ -13,6 +13,7 @@ ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
 
 CSRF_TRUSTED_ORIGINS = [
     'https://applyiq-production.up.railway.app',
+    'https://applyiq-beryl.vercel.app',
 ]
 
 INSTALLED_APPS = [
@@ -83,6 +84,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'http://127.0.0.1:5173',
     'https://applyiq-production.up.railway.app',
+    'https://applyiq-beryl.vercel.app',
 ]
 
 REST_FRAMEWORK = {
