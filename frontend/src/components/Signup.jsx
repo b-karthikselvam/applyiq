@@ -1,5 +1,6 @@
 import { useState } from "react"
 import axios from "axios"
+import API_BASE_URL from '../api'
 
 function Signup({ setShowSignup }) {
 
@@ -19,7 +20,7 @@ function Signup({ setShowSignup }) {
     e.preventDefault()
     try {
       await axios.post(
-        "http://127.0.0.1:8000/api/accounts/signup/",
+        "${API_BASE_URL}/api/accounts/signup/",
         formData
       )
       alert("Account created! Please login!")

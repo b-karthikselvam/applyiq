@@ -1,5 +1,6 @@
 import { useState } from "react"
 import axios from "axios"
+import API_BASE_URL from '../api'
 
 function AddJob({ fetchJobs }) { /*we collected the fucntion send by app.jsx*/
   const [formData, setFormData] = useState({
@@ -18,7 +19,7 @@ function AddJob({ fetchJobs }) { /*we collected the fucntion send by app.jsx*/
     e.preventDefault()
     const token = localStorage.getItem("access")  
     await axios.post(
-      "http://127.0.0.1:8000/api/jobs/",
+      "${API_BASE_URL}/api/jobs/",
       formData,
       {
         headers: {

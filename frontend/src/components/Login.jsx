@@ -1,5 +1,6 @@
 import { useState } from "react"
 import axios from "axios"
+import API_BASE_URL from '../api'
 
 function Login({ setIsLoggedIn , setShowSignup}) {   //collecting the props here it is a statevariable update function in App.jsx now just focus only on SetIsLogedIN
 
@@ -18,7 +19,7 @@ function Login({ setIsLoggedIn , setShowSignup}) {   //collecting the props here
     e.preventDefault()
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/token/", //3.1 call api ,if response didnot got any value then it will immediatley jump to catch so if the server did not send token the setIsLogedIN wont execute
+        "${API_BASE_URL}/api/token/", //3.1 call api ,if response didnot got any value then it will immediatley jump to catch so if the server did not send token the setIsLogedIN wont execute
         formData
       )
       localStorage.setItem("access", response.data.access)//3.2 store the returned token by server into the browesers local storage 

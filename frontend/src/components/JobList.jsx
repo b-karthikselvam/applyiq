@@ -1,5 +1,6 @@
 import { useState } from "react"
 import axios from "axios"
+import API_BASE_URL from '../api'
 
 function JobList({ jobs, fetchJobs }) {
   const [showModal, setShowModal] = useState(false)
@@ -19,7 +20,7 @@ async function analyzeJob() {
     setAnalyzing(true)
     const token = localStorage.getItem("access")
     const response = await axios.post(
-        "http://127.0.0.1:8000/api/analyze/",
+        "${API_BASE_URL}/api/analyze/",
         {
             description: jdText,
             resume: resumeText
@@ -42,7 +43,7 @@ async function analyzeJob() {
     e.preventDefault()
     const token = localStorage.getItem("access")
     await axios.post(
-      "http://127.0.0.1:8000/api/jobs/",
+      "${API_BASE_URL}/api/jobs/",
       formData,
       {
         headers: {
@@ -57,7 +58,7 @@ async function analyzeJob() {
 
   async function deleteJob(id) {
     const token = localStorage.getItem("access")
-    await axios.delete(`http://127.0.0.1:8000/api/jobs/${id}/`, {
+    await axios.delete(`${API_BASE_URL}/api/jobs/${id}/`, {
       headers: { Authorization: `Bearer ${token}` }
     })
     fetchJobs()
@@ -65,7 +66,7 @@ async function analyzeJob() {
 
   async function updateStatus(id, newStatus) {
     const token = localStorage.getItem("access")
-    await axios.patch(`http://127.0.0.1:8000/api/jobs/${id}/`, {
+    await axios.patch(`${API_BASE_URL}/api/jobs/${id}/`, {
       status: newStatus
     }, {
       headers: { Authorization: `Bearer ${token}` }
