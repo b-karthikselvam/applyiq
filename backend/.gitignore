@@ -3,4 +3,10 @@ __pycache__/
 *.pyc
 db.sqlite3
 .env
-.vscode
+.vscode*.dist-info
+asgiref/
+dj_database_url/
+django/
+sqlparse/
+tzdata/
+bin/
