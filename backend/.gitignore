@@ -3,7 +3,8 @@ __pycache__/
 *.pyc
 db.sqlite3
 .env
-.vscode*.dist-info
+.vscode
+*.dist-info
 asgiref/
 dj_database_url/
 django/
