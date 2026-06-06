@@ -8,8 +8,10 @@ ApplyIQ is a full-stack AI-powered career assistant that helps you track job app
 
 ## 🚀 Live Demo
 
-- **Frontend:** Coming soon (Vercel)
-- **Backend:** Coming soon (Railway)
+| | URL |
+|---|---|
+| 🌐 **Frontend** | [https://applyiq-beryl.vercel.app](https://applyiq-beryl.vercel.app) | >>click here to run 
+| ⚙️ **Backend API** | [https://applyiq-production.up.railway.app](https://applyiq-production.up.railway.app) |
 
 ---
 
@@ -62,16 +64,20 @@ applyiq/
 │   ├── accounts/          ← Custom User Model, Auth
 │   ├── jobs/              ← Job CRUD, AI Analysis
 │   ├── backend/           ← Django settings
+│   ├── Dockerfile         ← Docker config
 │   └── manage.py
 │
-└── frontend/
-    └── src/
-        ├── components/
-        │   ├── JobList.jsx    ← Job cards + AI panel
-        │   ├── Login.jsx      ← Login page
-        │   └── Signup.jsx     ← Signup page
-        └── router/
-            └── AppRouter.jsx
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── JobList.jsx    ← Job cards + AI panel
+│   │   │   ├── Login.jsx      ← Login page
+│   │   │   └── Signup.jsx     ← Signup page
+│   │   └── router/
+│   │       └── AppRouter.jsx
+│   └── Dockerfile         ← Docker config
+│
+└── docker-compose.yml     ← Run both together
 ```
 
 ---
@@ -80,14 +86,34 @@ applyiq/
 
 ### Prerequisites
 - Python 3.12+
-- Node.js 18+
+- Node.js 20+
 - Git
+- Docker (optional)
 
-### Backend Setup
+### Option 1 — Run with Docker (Recommended)
 
 ```bash
 # Clone the repo
 git clone https://github.com/b-karthikselvam/applyiq.git
+cd applyiq
+
+# Create .env file in backend folder
+echo "GROQ_API_KEY=your-groq-api-key" > backend/.env
+
+# Run both frontend and backend together
+docker-compose up --build
+```
+
+- Frontend: `http://localhost:5173`
+- Backend: `http://localhost:8000`
+
+---
+
+### Option 2 — Run Manually
+
+#### Backend Setup
+
+```bash
 cd applyiq/backend
 
 # Create virtual environment
@@ -111,7 +137,7 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-### Frontend Setup
+#### Frontend Setup
 
 ```bash
 cd applyiq/frontend
@@ -123,7 +149,7 @@ npm install
 npm run dev
 ```
 
-### Access the app
+#### Access the app
 - Frontend: `http://localhost:5173`
 - Backend API: `http://127.0.0.1:8000/api/`
 - Admin Panel: `http://127.0.0.1:8000/admin/`
@@ -183,10 +209,17 @@ Paste a job description and your resume to get:
 
 ---
 
-## 🐳 Docker (Coming Soon)
+## 🐳 Docker
 
 ```bash
+# Build and run both containers
 docker-compose up --build
+
+# Stop containers
+docker-compose down
+
+# View running containers
+docker ps
 ```
 
 ---
@@ -205,4 +238,4 @@ MIT License — feel free to use this project!
 
 ---
 
-*உ Built with passion — ApplyIQ* 🚀
+*உ Built with passion — ApplyIQ* 🧠🚀
